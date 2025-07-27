@@ -5,8 +5,13 @@ function StarBackground() {
   const [meteors, setMeteors] = useState([]);
 
   useEffect(() => {
-    generateStars();
     generateMeteors();
+    const handelResize = () => {
+      generateStars();
+    };
+    window.addEventListener("resize", handelResize);
+
+    return () => window.removeEventListener("resize", handelResize);
   }, []);
   const generateStars = () => {
     const numOfStars = Math.floor(
