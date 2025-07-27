@@ -6,7 +6,12 @@ function StarBackground() {
 
   useEffect(() => {
     generateMeteors();
+
+    generateStars();
     const handelResize = () => {
+      console.log("rsized");
+      generateMeteors();
+
       generateStars();
     };
     window.addEventListener("resize", handelResize);
